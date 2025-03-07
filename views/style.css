@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 50vw;
+    height: 60vh;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login {
+    position: relative;
+    left: 25vw;
+    border-radius: 10px;
+    width: 25vw;
+    height: 60vh;
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 25vw;
+    height: 40vh;
+    /* background-color: green; */
+    /* font-size: 23px; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+}
+
+.login div input {
+    position: relative;
+    top: 0px;
+    width: 19vw;
+    height: 30vh;
+    font-size: 15px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 11px 10px;
+    border: none;
+}
+
+.login div input::placeholder {
+    color: rgb(158, 158, 158);
+}
+
+.login div button {
+    font-size: 15px;
+    width: 20vw;
+    height: 35vh;
+    padding: 11px 10px;
+    color: rgb(255, 255, 255);
+    background-color: #0064c2;
+    border-radius: 5px;
+    border: none;
+}
+
+.login div div {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+}
+
+.register {
+    position: relative;
+    z-index: 1;
+    right: 25vw;
+    border-radius: 10px;
+    width: 25vw;
+    height: 60vh;
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 25vw;
+    height: 40vh;
+    /* background-color: green; */
+    /* font-size: 23px; */
+    margin: auto;
+}
+
+.register div input {
+    position: relative;
+    top: 0px;
+    width: 19vw;
+    height: 30vh;
+    font-size: 15px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 11px 10px;
+    border: none;
+}
+
+.register div input::placeholder {
+    color: rgb(158, 158, 158);
+}
+
+.register div button {
+    font-size: 15px;
+    width: 20vw;
+    height: 35vh;
+    padding: 11px 10px;
+    color: rgb(255, 255, 255);
+    background-color: #0064c2;
+    border-radius: 5px;
+    border: none;
+}
+
+.register div div {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+}
+
+.anim {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    right: 50vw;
+    width: 25vw;
+    height: 60vh;
+    background-color: #0064c2;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: auto;
+}
+
+.anim div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    opacity: 1;
+}
+
+.anim div:first-child button {
+    position: relative;
+    z-index: 10;
+    color: white;
+    background-color: #0064c2;
+    padding: 10px 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.div2 {
+    position: absolute;
+    z-index: -10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    opacity: 0;
+}
+
+.div2 button {
+    position: relative;
+    z-index: -10;
+    color: white;
+    background-color: #0064c2;
+    padding: 10px 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.wronguser{
+    color: red;
+    position: absolute;
+    z-index: 9;
+    top: 22vh;
+    right: 16vw;
+    font-size: 11px;
+}
+
+@media screen and (max-width:455px) {
+    .container {
+        width: 80vw;
+        height: 90vh;
+        flex-direction: column;
+    }
+
+    .login {
+        /* background-color: gray; */
+        position: relative;
+        left: 0vw;
+        top: 360px;
+        border-radius: 10px;
+        width: 80vw;
+        height: 45vh;
+        /* background-color: gray; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login>div {
+        gap: 8px;
+        width: 40vw;
+        height: 20vh;
+    }
+
+    .login div input {
+        width: 59vw;
+        height: 14vh;
+        font-size: 7px;
+        background-color: rgb(230, 230, 230);
+        border-radius: 5px;
+        padding: 7px 10px;
+        border: none;
+    }
+
+    .login div div {
+        font-size: 9px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .login div button {
+        font-size: 9px;
+        width: 65vw;
+        height: 14vh;
+        padding: 7px 10px;
+    }
+
+    .register {
+        /* background-color: gray; */
+        position: relative;
+        right: 0;
+        bottom: 200px;
+        border-radius: 10px;
+        width: 80vw;
+        height: 3vh;
+        /* background-color: gray; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .register>div {
+        gap: 8px;
+        width: 40vw;
+        height: 20vh;
+    }
+
+    .register div input {
+        width: 59vw;
+        height: 9vh;
+        font-size: 7px;
+        background-color: rgb(230, 230, 230);
+        border-radius: 5px;
+        padding: 7px 10px;
+        border: none;
+    }
+
+    .register div div {
+        display: none;
+    }
+
+    .register div button {
+        font-size: 9px;
+        width: 65vw;
+        height: 9vh;
+        padding: 7px 10px;
+    }
+
+    .anim {
+        /* display: none; */
+        right: 10vw;
+        width: 80vw;
+        height: 47vh;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 50px;
+    }
+}

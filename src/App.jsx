@@ -15,7 +15,7 @@ function App() {
     setauth(true);
     setcurrentuser(username)
 
-    const newSocket = io('http://localhost:3000/');
+    const newSocket = io('https://chat-app-vz7d.onrender.com/');
     setsocket(newSocket);
 
     newSocket.on('connect', ()=>{

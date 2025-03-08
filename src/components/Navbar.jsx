@@ -34,11 +34,11 @@ const Navbar = ({ currentuser }) => {
   
   return (
     <div className='block md:flex w-dvw h-dvh'>
-      <div className="left w-full absolute h-full"><img className='w-full h-full' src="./images/background.jpg" alt="" /></div>
+      <div className="left w-full absolute h-full"><img className='w-full h-full' src="/images/background.jpg" alt="" /></div>
       <div className='left bg-[#272727] w-[98vw] md:w-[27vw] rounded-[5%] h-[97%] relative flex flex-col top-[10px] left-[5px]'>
         <div className="top w-full flex justify-between items-center mt-[2vh]">
           <div className='text-white text-2xl ml-[28px] font-bold'>Messages</div>
-          <img src="../images/default_profile_normal.png" alt="" className="userdm rounded-full w-[60px] h-[60px] mr-[2vw]" />
+          <img src="/images/default_profile_normal.png" alt="" className="userdm rounded-full w-[60px] h-[60px] mr-[2vw]" />
         </div>
         <div className="content w-full">
           {users.map(user=>{

@@ -10,7 +10,7 @@ const Signup = ({changeform, setload}) => {
         formState: { errors, isSubmitting },
       } = useForm()
       const onSubmit = async(data) => {
-        let a = await fetch('http://localhost:3000/signup', {method:"POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)});
+        let a = await fetch('https://chat-app-vz7d.onrender.com/signup', {method:"POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)});
         let b = await a.json();
         if(b.status){
           setError("usernameerr", {type:"manual", message:"This username already exsits"})

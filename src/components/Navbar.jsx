@@ -26,7 +26,7 @@ const Navbar = ({ currentuser }) => {
 
   useEffect(() => {
     const getusers = async () => {
-      let a = await fetch('http://localhost:3000/getuser', { method: "GET" })
+      let a = await fetch('https://chat-app-vz7d.onrender.com/getuser', { method: "GET" })
       setusers(await a.json())
     }
     getusers();

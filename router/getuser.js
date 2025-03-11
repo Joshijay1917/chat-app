@@ -7,7 +7,7 @@ const router = express.Router()
 const server = http.createServer(router);
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173/',
+        origin: 'https://chat-app-blush-eight-56.vercel.app/',
         methods: ['GET', 'POST'],
     },
 })

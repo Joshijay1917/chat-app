@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Content from './Content'
 import { chatapp } from "../context/chatapp.js"
-import Sendmsg from './messages/Sendmsg.jsx'
+import Sendmsg from './messages/Sendmsg'
 
 const Main = ({ currentuser, receivedmsg }) => {
     const [alluser, setalluser] = useState(false)

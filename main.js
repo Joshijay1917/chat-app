@@ -90,8 +90,8 @@ io.on('connection', async(socket) => {
     })
 
     socket.on('disconnect', async(user)=>{
-        console.log(user + " disconnected");
-        await signin.findOneAndUpdate({ username: currentuser }, {scoketID:socket.id, userstatus:false})
+        console.log(socket.handshake.query.username + " disconnected");
+        await signin.findOneAndUpdate({ username: (socket.handshake.query.username) }, {scoketID:socket.id, userstatus:false})
     })
 });
 

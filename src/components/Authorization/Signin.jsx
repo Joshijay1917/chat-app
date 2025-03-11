@@ -10,7 +10,7 @@ const Signin = ({changeform, auth}) => {
         formState: { errors, isSubmitting },
     } = useForm()
     const onSubmit = async(data) => {
-        let a = await fetch('http://localhost:3000/signin', {method:"POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)});
+        let a = await fetch('https://chat-app-vz7d.onrender.com/signin', {method:"POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)});
         let b = await a.json();
         // console.log(b)
         if(b.status == 204){

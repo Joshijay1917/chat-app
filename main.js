@@ -7,6 +7,7 @@ import {getuser} from "./router/getuser.js"
 import http from "http"
 import { Server } from "socket.io";
 import { message } from "./models/message.js"
+import { chatuser } from "./router/chatuser.js"
 
 let currentuser
 const app = express()
@@ -22,10 +23,31 @@ const io = new Server(server, {
 
 io.on('connection', async(socket) => {
 
-    socket.on('update-id', async (user)=>{
-        await signin.findOneAndUpdate({ username: user}, {scoketID:socket.id, userstatus:true})
-        await signin.findOne({username: user})
-        // console.log(user + " need to send msg");
+    console.log(socket.handshake.query.username + " is connected");
+    
+    await signin.findOneAndUpdate({ username: (socket.handshake.query.username)}, {scoketID:socket.id, userstatus:true})
+
+    socket.on('getuser', async ()=>{
+        console.log("getuser");
+        let users = await signin.find({})
+        socket.emit('all-users', users);
+    })
+
+    socket.on('chateduser', async (user)=>{
+        let sender = await signin.findOne({username: user.currentuser})
+        let newmsgs = await message.find({sender:sender._id})
+        let receivers = []
+        let receiversuser = []
+        if(newmsgs){
+            newmsgs.forEach(e=>{
+                receivers.push(e.receiver)
+            })
+            receivers = Array.from(new Set(receivers.map(JSON.stringify))).map(JSON.parse);
+            for (const e of receivers) {
+                receiversuser.push(await signin.findById(e))
+            }
+            socket.emit('chted-users', receiversuser)
+        }
     })
 
     socket.on('chat-history', async (history) => {
@@ -74,6 +96,7 @@ io.on('connection', async(socket) => {
 });
 
 try {
+    // await mongoose.connect(process.env.MONGO_URI)
     await mongoose.connect('mongodb://localhost:27017/Company')
         .then(e => { console.log("connected to DB!") })
         .catch(e => { console.log("failed to connect: " + e) })
@@ -84,6 +107,7 @@ try {
 app.use(cors());
 app.use(express.json())
 app.use('/getuser', getuser)
+app.use('/chatuser', chatuser)
 
 app.get(`/`, (req, res) => {
     res.send('Hello i am backend');

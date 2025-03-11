@@ -16,7 +16,7 @@ app.use(cors())
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173',
+        origin: 'https://chat-app-blush-eight-56.vercel.app',
         methods: ['GET', 'POST'],
     },
 })
@@ -96,8 +96,8 @@ io.on('connection', async(socket) => {
 });
 
 try {
-    // await mongoose.connect(process.env.MONGO_URI)
-    await mongoose.connect('mongodb://localhost:27017/Company')
+    await mongoose.connect(process.env.MONGO_URI)
+    // await mongoose.connect('mongodb://localhost:27017/Company')
         .then(e => { console.log("connected to DB!") })
         .catch(e => { console.log("failed to connect: " + e) })
 } catch (error) {

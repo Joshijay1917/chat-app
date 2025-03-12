@@ -1,15 +1,21 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import Send from "./Send"
 import Receive from "./Receive"
 import { chatapp } from '../../context/chatapp'
 
 const Sendmsg = ({ currentuser, sendto }) => {
     const sendmsg = useRef()
+    const msgs = useRef()
     const value = useContext(chatapp)
     const messagesall = value.messagesall
     const setmessagesall = value.setmessagesall
     const socket = value.socket
 
+    useEffect(() => {
+        msgs.current.scrollTop = msgs.current.scrollHeight
+    
+    }, [messagesall])
+    
     const send = () => {
         if (sendmsg.current.value != "") {
             console.log("emit send msg");
@@ -22,7 +28,7 @@ const Sendmsg = ({ currentuser, sendto }) => {
     }
     return (
         <div>
-            <div className="messages text-white fixed w-[97%] md:w-[72%] bottom-[13vh] md:bottom-[16vh] overflow-auto max-h-[78%] md:max-h-[82%]">
+            <div ref={msgs} className="messages text-white fixed w-[97%] md:w-[72%] bottom-[13vh] md:bottom-[16vh] overflow-auto max-h-[78%] md:max-h-[82%]">
                 <Receive msg={"Hello this is a chatApp made by Joshi Jay"} />
                 {messagesall.map(item => {
                     return (((item.type) ? (<Send key={item.msg} msg={item.msg} />) : (<Receive key={item.msg} msg={item.msg} />))
